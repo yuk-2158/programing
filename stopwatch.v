@@ -58,3 +58,5 @@ module stopwatch(
   decoder7seg decoder1( .date(sec1), .code(seg_1));
   decoder7seg decoder2( .date(sec10), .code(seg_2));
   decoder7seg decoder3( .date(sec100), .code(seg_3));
+
+  
