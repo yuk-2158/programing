@@ -1,0 +1,24 @@
+//seg7test.ucf
+NET "seg(6)" LOC =V13; //A
+NET "seg(5)" LOC =V15; //B
+NET "seg(4)" LOC =N8; //C
+NET "seg(3)" LOC =V10; //D
+NET "seg(2)" LOC =T10; //E
+NET "seg(1)" LOC =V16; //F
+NET "seg(0)" LOC =V8; //G
+NET "dp"     LOC =T8; //DP
+
+NET "line(3)" LOC = U10; //IO11
+NET "line(2)" LOC = R8;  //IO12
+NET "line(1)" LOC = M8;  //IO13
+NET "line(0)" LOC = U8;  //IO14
+
+NET "sw(3)" LOC = P4; //BTNL
+NET "sw(2)" LOC = F5; //BTNC
+NET "sw(1)" LOC = F6; //BTNR
+NET "sw(0)" LOC = P3; //BTND
+
+NET "ssw(3)" LOC = P15; //sw3
+NET "ssw(2)" LOC = C14; //sw2
+NET "ssw(1)" LOC = D14; //sw1
+NET "ssw(0)" LOC = A10; //sw0
