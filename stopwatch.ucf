@@ -1,0 +1,22 @@
+// stopwatch.ucf
+NET "clk0"   LOC =L15;
+
+NET "seg(6)" LOC =V13;  //A
+NET "seg(5)" LOC =V15;  //B
+NET "seg(4)" LOC =N8;  //C
+NET "seg(3)" LOC =V10;  //D
+NET "seg(2)" LOC =T10;  //E
+NET "seg(1)" LOC =V16;  //F
+NET "seg(0)" LOC =V8;  //G
+NET "dp"     LOC =T8;  //DP
+
+NET "line(3)" LOC= U10;
+NET "line(2)" LOC= R8;
+NET "line(1)" LOC= M8;
+NET "line(0)" LOC= U8;
+
+NET "reset_sw" LOC= P4;
+NET "start_sw" LOC= P3;
+
+NET "led(1)" LOC= M14; //reset 
+NET "led(0)" LOC= U18; //start/stop
