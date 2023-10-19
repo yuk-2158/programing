@@ -59,4 +59,49 @@ module stopwatch(
   decoder7seg decoder2( .date(sec10), .code(seg_2));
   decoder7seg decoder3( .date(sec100), .code(seg_3));
 
+  always@(posedge clk0) cc1<=cc1+1'b1; //ダイナミック点灯用カウンタ
+  assign dp =(cc1[20:19] ==2'b01)?1'b1:1'b0;//ATLYS //小数点制御
+  // assign dp =(cc1[20:19] ==2'b01)?1'b0:1'b1;//BASYS2
   
+  assign seg=
+    cc1[20:19]==2'b00 ? seg_0: // 00 ダイナミック点灯選択
+    cc1[20:19]==2'b01 ? seg_1: // 01 
+    cc1[20:19]==2'b10 ? seg_2: // 11
+                        seg_3; // 11
+
+  assign enable_chattering = (cc1[19:0]==20'b0)?1'b1:1'b0;
+  assign line = 4'b1<<cc1[20:19]; //ATLYS //4ライン制御　
+  //assign line = 4'b1<<cc1[20:19]; ^ 4'b1111; //BASYS2
+
+endmodule
+//数値→7セグデコーダ
+
+module decoder7seg(input wire [3:0] data, output wire [6:0] code);
+  wire[6:0] c=
+      data==4'd0 ? 7'b1111110 : //0
+      data==4'd1 ? 7'b1000000 : //1
+      data==4'd2 ? 7'b0100000 : //2
+      data==4'd3 ? 7'b0010000 : //3  
+      data==4'd4 ? 7'b0001000 : //4
+      data==4'd5 ? 7'b0000100 : //5
+      data==4'd6 ? 7'b0000010 : //6
+      data==4'd7 ? 7'b1100011 : //7
+      data==4'd8 ? 7'b0011101 : //8
+                   7'b1111011 : //9
+  assign code = c; //ATLYS
+  // assign code = ~c; //BASYS2
+endmodule
+//10進カウンタ
+
+module counter10( input wire clk, input wire rsw, input wire e_in, output wire[3:0] dat, output wire e_out);
+
+reg[3:0] tt=4'b0;
+  always@(posedge clk or posedge rsw )begin
+    if( rsw ==1'b1)
+      tt <= 4'b0;
+    else if( e_in==1'b1)
+      tt<= (tt=4'd9 )? 4'b0: (tt+4'b1);
+  end
+  assign e_out=(e_in&&tt=4'd9)? 1'b1:1'b0;
+  assign dat =tt;
+endmodule
