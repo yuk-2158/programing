@@ -1,0 +1,12 @@
+// auto_counter_60_ary.ucf
+002: net "elk" loc=LlS;
+003 : net "a" loc=P3;
+004:
+005: net "q1(2)" loc=P16;
+006: net "ql(l)" loc=D4;
+007: net "ql(O)" loc=M13;
+008:
+009: net "q0(3)" loc=L14;
+010: net "q0(2)" loc=N14;
+011: net "qO(l) " loc=M14;
+012: net "qO(O)" l oc=U18;
