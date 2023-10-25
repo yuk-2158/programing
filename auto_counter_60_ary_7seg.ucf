@@ -1,0 +1,13 @@
+net "seg(7)" loc=V13;
+net "seg(6)" loc=V15;
+net "seg(5)" loc=N8;
+net "seg(4)" loc=V10;
+net "seg(3)" loc=T10;
+net "seg(2)" loc=V16;
+net "seg(1)" loc=V8;
+net "seg(0)" loc=T8;
+
+net "line(3)" loc=U10;
+net "line(2)" loc=R8;
+net "line(1)" loc=M8;
+net "line(0)" loc=U8;
